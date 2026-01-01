@@ -1,7 +1,7 @@
 /*
- * (C) Copyright 2025/2026 Grant Abernathy & Kendalynn Kohler. All Rights Reserved.
+ *  (C) Copyright 2025/2026 Grant Abernathy & Kendalynn Kohler. All Rights Reserved.
  *
- * gifutil.h: Core Header File For gifutil.
+ *      gifutil.h: Core Header File For gifutil.
  */
 #ifndef GIFUTIL_H
 #define GIFUTIL_H
