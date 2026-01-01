@@ -17,43 +17,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* extract all frames from the context to the target directory/prefix */
+/* include stb write header 
+    to get prototypes */
+#include "stb_image_write.h"
+
 gif_error extract_frames(
     const gif_context* context,
     const char* output_prefix,
     output_format format
 )
 {
-    /* if no context and context is pointing to raw_data, GIF_ERR_INVALID_FORMAT */
     if (!context || !context->raw_data)
         return GIF_ERROR_INVALID_FORMAT;
 
-    /* stride is with (*) channels, bytes per row
-        frame size if stride * height
-    */
-    int frame_size = context->width * context->channels * context->height;
-    int stride = context->width * context->channels;
+    /* stride is width * channels (bytes per row) */
+    s32 stride = context->width * context->channels;
+    usize frame_size = (usize)(stride * context->height);
 
-    for (int i = 0; i < context->frames; i++)
+    for (s32 i = 0; i < context->frames; i++)
     {
         char filename[512];
         const char* ext = (format == FMT_PNG) ? "png" :
                           (format == FMT_JPG) ? "jpg" : "bmp";
         
-        /* create */
         snprintf(
             filename,
             sizeof(filename),
             "%s_%03d.%s",
             output_prefix,
-            (int)i,
+            i,
             ext
         );
 
-        unsigned char* frame_ptr = context->raw_data + (i * frame_size);
-        usize result = 0;
+        u8* frame_ptr = context->raw_data + (i * frame_size);
+        int result = 0;
 
-        printf("Extracting frame %d to %s...\n", (int)i, filename);
+        printf("Extracting frame %d to %s...\n", i, filename);
 
         switch (format)
         {
@@ -64,7 +63,7 @@ gif_error extract_frames(
                     context->height,
                     context->channels,
                     frame_ptr,
-                    (usize)stride
+                    stride
                 );
                 break;
             case FMT_JPG:
@@ -89,6 +88,13 @@ gif_error extract_frames(
             default:
                 return GIF_ERROR_INVALID_FORMAT;
         }
+
+        /* 0 indicates failure in stbi_write */
+        if (result == 0)
+        {
+            return GIF_ERROR_WRITE_FAILED;
+        }
     }
-    return GIF_ERROR_WRITE_FAILED;
+
+    return GIF_SUCCESS;
 }
