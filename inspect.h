@@ -6,4 +6,10 @@
 #ifndef INSPECT_H
 #define INSPECT_H
 
+/* core header file */
+#include "core.h"
+
+/* inspects loaded gif context and prints details */
+gif_error inspect_gif(const gif_context* context);
+
 #endif /* INSPECT_H */

@@ -76,18 +76,18 @@ gif_error gif_load(const char* filepath, gif_context* out_context)
         return GIF_ERROR_FILE_NOT_FOUND;
     
     /* setup with, height, frames and comp */
-    int w, h, frames, comp;
-    int req_comp = 4; /* rgba */
-    int* delays = NULL;
+    usize w, h, frames, comp;
+    usize req_comp = 4; /* rgba */
+    usize* delays = NULL;
 
     /* load as gif to get access to all frames. */
     unsigned char* data = stbi_load_gif_from_memory(
         file_buffer,
         (int)file_size,
-        &delays,
-        &w, &h,
-        &frames, &comp,
-        req_comp
+        (int)&delays,
+        (int)&w, (int)&h,
+        (int)&frames, (int)&comp,
+        (int)req_comp
     );
 
     /* free buffer, we don't need it anymore. */
