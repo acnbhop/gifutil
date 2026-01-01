@@ -26,6 +26,7 @@ set(SOURCES
     main.c
     gifutil.c
     extract.c
+    inspect.c
 )
 
 add_executable(gifutil ${SOURCES})
