@@ -24,11 +24,11 @@ typedef enum gif_error
 typedef struct gif_context
 {
     unsigned char* raw_data; /* pointer to raw image buffer, which contains all the frames. */
-    usize width;          /* width of each frame */
-    usize height;         /* height of each frame */
-    usize frames;         /* total number of frames, z-depth */
-    usize channels;       /* components per pixel, 4 for rgba usually */
-    usize* delays;        /* array of delays in ms for each frames*/
+    int width;          /* width of each frame */
+    int height;         /* height of each frame */
+    int frames;         /* total number of frames, z-depth */
+    int channels;       /* components per pixel, 4 for rgba usually */
+    int* delays;        /* array of delays in ms for each frames*/
 } gif_context;
 
 /* loads a gif from disk into memory. */

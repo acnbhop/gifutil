@@ -31,10 +31,10 @@ gif_error extract_frames(
     /* stride is with (*) channels, bytes per row
         frame size if stride * height
     */
-    usize frame_size = (usize)(context->width * context->channels * context->height);
-    usize stride = (usize)(context->width * context->channels);
+    int frame_size = context->width * context->channels * context->height;
+    int stride = context->width * context->channels;
 
-    for (usize i = 0; i < (usize)context->frames; i++)
+    for (int i = 0; i < context->frames; i++)
     {
         char filename[512];
         const char* ext = (format == FMT_PNG) ? "png" :
@@ -46,14 +46,14 @@ gif_error extract_frames(
             sizeof(filename),
             "%s_%03d.%s",
             output_prefix,
-            (usize)i,
+            (int)i,
             ext
         );
 
         unsigned char* frame_ptr = context->raw_data + (i * frame_size);
         usize result = 0;
 
-        printf("Extracting frame %d to %s...\n", (usize)i, filename);
+        printf("Extracting frame %d to %s...\n", (int)i, filename);
 
         switch (format)
         {
