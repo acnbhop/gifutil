@@ -1,7 +1,7 @@
 /*
- *  (C) Copyright 2025/2026 Grant Abernathy & Kendalynn Kohler. All Rights Reserved.
+ * (C) Copyright 2025/2026 Grant Abernathy & Kendalynn Kohler. All Rights Reserved.
  *
- *      core.h: Core Header File.
+ * core.h: Core Header File.
  */
 #ifndef CORE_H
 #define CORE_H
@@ -14,9 +14,6 @@
 
 #include <stdint.h>
 #include <stddef.h>
-
-/* gif util header */
-#include "gifutil.h"
 
 typedef float           f32;
 typedef double          f64;
