@@ -10,6 +10,9 @@
 /* core header file */
 #include "core.h"
 
+/* gifutil header file */
+#include "gifutil.h"
+
 /* the output format */
 typedef enum output_format
 {
