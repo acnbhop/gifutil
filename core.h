@@ -15,6 +15,9 @@
 #include <stdint.h>
 #include <stddef.h>
 
+/* gif util header */
+#include "gifutil.h"
+
 typedef float           f32;
 typedef double          f64;
 
@@ -35,4 +38,4 @@ typedef uintmax_t       umax;
 typedef uintptr_t       uptr;
 typedef intptr_t        iptr;
 
-#endif // CORE_H
+#endif /* CORE_H */

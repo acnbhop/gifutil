@@ -8,8 +8,8 @@
 #include "core.h"
 
 /* gifutil headers */
-#include "gifutil.h"
 #include "extract.h"
+#include "inspect.h"
 
 /* standard headers */
 #include <stdio.h>

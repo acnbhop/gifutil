@@ -4,12 +4,13 @@
  *      extract.h: Extraction Of Frames Header File.
  */
 
+#ifndef EXTRACT_H
+#define EXTRACT_H
+
 /* core header file */
 #include "core.h"
 
-/* gifutil header file */
-#include "gifutil.h"
-
+/* the output format */
 typedef enum output_format
 {
     FMT_PNG = 0,
@@ -23,3 +24,5 @@ gif_error extract_frames(
     const char* output_prefix,
     output_format format
 );
+
+#endif /* EXTRACT_H */

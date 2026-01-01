@@ -36,4 +36,4 @@ gif_error gif_load(const char* filepath, gif_context* out_context);
 /* frees resources that were allocated. */
 void gif_free(gif_context* context);
 
-#endif // GIFUTIL_H
+#endif /* GIFUTIL_H */
