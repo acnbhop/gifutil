@@ -9,6 +9,9 @@
 /* core header file */
 #include "core.h"
 
+/* gifutil header file */
+#include "gifutil.h"
+
 /* inspects loaded gif context and prints details */
 gif_error inspect_gif(const gif_context* context);
 
